@@ -1,0 +1,107 @@
+   body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: radial-gradient(circle at top, #8B4513, #2c1407);
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ffd699;
+        margin-bottom: 40px;
+        font-size: 3em;
+        text-shadow: 0 0 10px rgba(255, 215, 140, 0.6);
+        animation: fadeDown 1s ease-out;
+    }
+
+    @keyframes fadeDown {
+        from {opacity: 0; transform: translateY(-40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        text-align: center;
+        transform: translateY(50px);
+        opacity: 0;
+        transition: transform 0.4s ease, box-shadow 0.3s ease;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .card.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+        transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1) rotate(1deg);
+    }
+
+    .card h2 {
+        margin: 15px 0 5px;
+        font-size: 1.4em;
+        color: #ffd699;
+        text-shadow: 0 0 6px rgba(255, 215, 140, 0.4);
+    }
+
+    .card p.price {
+        color: #ffbf80;
+        font-size: 1.3em;
+        margin: 5px 0;
+        font-weight: bold;
+    }
+
+    .card p.description {
+        font-size: 0.95em;
+        padding: 0 15px;
+        color: #f0e6dc;
+    }
+
+    .card p.stock {
+        font-weight: bold;
+        margin: 12px 0;
+        color: #2c1407;
+        background: linear-gradient(135deg, #ffd699, #ffcc99);
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 25px;
+        animation: pulse 1.8s infinite;
+        box-shadow: 0 0 10px rgba(255, 215, 140, 0.6);
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1);}
+        50% { transform: scale(1.08);}
+    }
